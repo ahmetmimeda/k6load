@@ -1,0 +1,16 @@
+{
+  "scenarios": {
+    "prod_click": {
+      "executor": "shared-iterations",
+      "iterations": 1,
+      "vus": 1,
+      "exec": "prod_click_scenario"
+    },
+    "prod_event": {
+      "executor": "shared-iterations",
+      "iterations": 1,
+      "vus": 1,
+      "exec": "prod_event_scenario"
+    }
+  }
+}
