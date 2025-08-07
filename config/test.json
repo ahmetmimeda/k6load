@@ -8,8 +8,8 @@
     },
     "prod_event": {
       "executor": "shared-iterations",
-      "iterations": 1,
-      "vus": 1,
+      "iterations": 20,
+      "vus": 5,
       "exec": "prod_event_scenario"
     }
   }
