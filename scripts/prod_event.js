@@ -7,6 +7,7 @@ import http from 'k6/http';
 export function prod_event() {  
 
   const url = new URL('https://bidding-eventcollector.azurewebsites.net/events');
+  //const url = new URL('http://event.mlink.com.tr/events');
   
   const productList = generateRandomTripletString(getRandomInt(1, 8));
   
@@ -33,11 +34,9 @@ export function prod_event() {
   url.searchParams.append('os', 'iOS 17');
   url.searchParams.append('br', 'Google Chrome');
 
-  console.log(decodedpl)
-  console.log(url.toString())
   
   let response = http.get(url.toString());
-  trackResponseTime(response);
+  
   checkStatus({
     response: response,
     expectedStatus: 200,

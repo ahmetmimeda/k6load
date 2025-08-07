@@ -20,10 +20,10 @@ export function randomIntBetween(min, max) { // min and max included
 }
 
 export function checkStatus({ response, expectedStatus, expectedContent, failOnError, printOnError, dynamicIds }) {
-  if (isEmpty(expectedStatus) && isEmpty(expectedContent)) {
+  /* if (isEmpty(expectedStatus) && isEmpty(expectedContent)) {
     console.warn('No expected status or content specified in call to checkStatus for URL ' + response.url);
     return;
-  }
+  } */
 
   let contentCheckResult;
   let statusCheckResult;
