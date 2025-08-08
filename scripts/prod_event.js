@@ -2,12 +2,12 @@ import { checkStatus, trackResponseTime, getRandomIntList, getRandomInt, appendI
 
 import { URL } from 'https://jslib.k6.io/url/1.0.0/index.js';
 import http from 'k6/http';
+import { sleep } from 'k6';
 
 
 export function prod_event() {  
 
   const url = new URL('https://bidding-eventcollector.azurewebsites.net/events');
-  //const url = new URL('http://event.mlink.com.tr/events');
   
   const productList = generateRandomTripletString(getRandomInt(1, 8));
   
@@ -34,14 +34,20 @@ export function prod_event() {
   url.searchParams.append('os', 'iOS 17');
   url.searchParams.append('br', 'Google Chrome');
 
+  /* console.log(decodedpl)
+  console.log(url.toString()) */
   
-  let response = http.get(url.toString());
-  
+  let response = http.get(url.toString(), {
+  tags: { name: 'value' }
+  });
+
   checkStatus({
     response: response,
     expectedStatus: 200,
-    failOnError: true,
-    printOnError: true
+    //failOnError: true,
+    //printOnError: true
   });
   
+  //sleep(2);
+
 }
