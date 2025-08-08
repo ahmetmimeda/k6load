@@ -1,12 +1,77 @@
 {
+  "discardResponseBodies": true,
   "scenarios": {
     "prod_click": {
       "executor": "shared-iterations",
-      "iterations": 1,
+      "iterations": 10,
       "vus": 1,
       "exec": "prod_click_scenario"
     },
     "prod_event": {
+      "executor": "ramping-vus",
+      "startVUs": 0,
+      "stages": [
+        {
+          "duration": "3s",
+          "target": 100
+        },
+        {
+          "duration": "5s",
+          "target": 180
+        },
+        {
+          "duration": "2s",
+          "target": 1000
+        },
+        {
+          "duration": "10s",
+          "target": 1000
+        },
+        {
+          "duration": "5s",
+          "target": 0
+        }
+      ],
+      "gracefulRampDown": "10s",
+      "exec": "prod_event_scenario"
+    },
+     "prod_event_ramp2k": {
+      "executor": "ramping-vus",
+      "startVUs": 1000,
+      "stages": [
+        {
+          "duration": "60s",
+          "target": 1000
+        },
+        {
+          "duration": "10s",
+          "target": 2000
+        },
+        {
+          "duration": "180s",
+          "target": 2000
+        },
+        {
+          "duration": "10s",
+          "target": 3000
+        },
+        {
+          "duration": "120s",
+          "target": 3000
+        },
+        {
+          "duration": "10s",
+          "target": 1000
+        },
+        {
+          "duration": "60s",
+          "target": 1000
+        }
+      ],
+      "gracefulRampDown": "10s",
+      "exec": "prod_event_scenario"
+    },
+    "prod_event_test": {
       "executor": "shared-iterations",
       "iterations": 20,
       "vus": 5,

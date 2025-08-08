@@ -7,6 +7,8 @@ globalThis.PAUSE_MIN = __ENV.PAUSE_MIN || 1;
 globalThis.PAUSE_MAX = __ENV.PAUSE_MAX || 5;
 globalThis.RUN_SCENARIO = __ENV.SCENARIO || "prod_event";
 globalThis.RUN_SCENARIO = __ENV.SCENARIO || "prod_click";
+globalThis.RUN_SCENARIO = __ENV.SCENARIO || "prod_event_test";
+globalThis.RUN_SCENARIO = __ENV.SCENARIO || "prod_event_ramp2k";
 
 // load test config, used to populate exported options object:
 const testConfig = JSON.parse(open('./config/test.json'));
