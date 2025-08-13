@@ -107,3 +107,7 @@ export function generateRandomTripletString(count) {
 
   return parts.join(";");
 }
+
+export function getRandomElement(arr) {
+    return arr[Math.floor(Math.random() * arr.length)];
+}
