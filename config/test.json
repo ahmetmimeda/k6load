@@ -56,7 +56,7 @@
           "target": 3000
         },
         {
-          "duration": "120s",
+          "duration": "600s",
           "target": 3000
         },
         {
@@ -73,7 +73,7 @@
     },
     "prod_event_test": {
       "executor": "shared-iterations",
-      "iterations": 20,
+      "iterations": 200,
       "vus": 5,
       "exec": "prod_event_scenario"
     }
