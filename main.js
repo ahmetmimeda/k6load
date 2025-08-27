@@ -1,6 +1,7 @@
 //export { first_scenario } from './scenarios/scenario1.js';
 export { prod_click_scenario } from './scenarios/click_scenarios.js';
 export { prod_event_scenario } from './scenarios/event_scenarios.js';
+export { prod_orfad_scenario } from './scenarios/adserver_scenario.js';
 
 
 globalThis.PAUSE_MIN = __ENV.PAUSE_MIN || 1;
@@ -9,6 +10,8 @@ globalThis.RUN_SCENARIO = __ENV.SCENARIO || "prod_event";
 globalThis.RUN_SCENARIO = __ENV.SCENARIO || "prod_click";
 globalThis.RUN_SCENARIO = __ENV.SCENARIO || "prod_event_test";
 globalThis.RUN_SCENARIO = __ENV.SCENARIO || "prod_event_ramp2k";
+globalThis.RUN_SCENARIO = __ENV.SCENARIO || "prod_orfad_test";
+
 
 // load test config, used to populate exported options object:
 const testConfig = JSON.parse(open('./config/test.json'));
