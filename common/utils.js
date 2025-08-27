@@ -108,6 +108,21 @@ export function generateRandomTripletString(count) {
   return parts.join(";");
 }
 
+export function joinRandom(strings) {
+    if (!strings.length) return "";
+
+    // shuffle array
+    const shuffled = [...strings].sort(() => Math.random() - 0.5);
+
+    // pick random count (1 to length)
+    const count = Math.floor(Math.random() * strings.length) + 1;
+
+    // take that many
+    const chosen = shuffled.slice(0, count);
+
+    return chosen.join(",");
+}
+
 export function getRandomElement(arr) {
     return arr[Math.floor(Math.random() * arr.length)];
 }

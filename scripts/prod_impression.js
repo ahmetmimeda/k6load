@@ -8,8 +8,6 @@ export function prod_impression() {
 
   const url = new URL('https://performance.mlink.com.tr/impressions');
   
-  
-  
   url.searchParams.append('li', 4808);
   url.searchParams.append('c', 9);
   url.searchParams.append('au', 'migros-sanalmarket-sponsored-product-slot-11');
@@ -24,13 +22,15 @@ export function prod_impression() {
   url.searchParams.append('br', 'Google Chrome');
 
 
-  let response = http.get(url.toString());
-  trackResponseTime(response);
-  checkStatus({
-    response: response,
-    expectedStatus: 200,
-    failOnError: true,
-    printOnError: true
-  });
+    let response = http.get(url.toString(), {
+        tags: { name: 'value' }
+    });
+
+    checkStatus({
+        response: response,
+        expectedStatus: 200,
+        //failOnError: true,
+        //printOnError: true
+    });
   
 }

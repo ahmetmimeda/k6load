@@ -1,12 +1,6 @@
 {
   "discardResponseBodies": true,
   "scenarios": {
-    "prod_click": {
-      "executor": "shared-iterations",
-      "iterations": 10,
-      "vus": 1,
-      "exec": "prod_click_scenario"
-    },
     "prod_event": {
       "executor": "ramping-vus",
       "startVUs": 0,
@@ -76,6 +70,132 @@
       "iterations": 200,
       "vus": 5,
       "exec": "prod_event_scenario"
+    },
+    "prod_orfad": {
+      "executor": "ramping-vus",
+      "startVUs": 1000,
+      "stages": [
+        {
+          "duration": "60s",
+          "target": 1000
+        },
+        {
+          "duration": "10s",
+          "target": 2000
+        },
+        {
+          "duration": "180s",
+          "target": 2000
+        },
+        {
+          "duration": "10s",
+          "target": 3000
+        },
+        {
+          "duration": "600s",
+          "target": 3000
+        },
+        {
+          "duration": "10s",
+          "target": 1000
+        },
+        {
+          "duration": "60s",
+          "target": 1000
+        }
+      ],
+      "gracefulRampDown": "10s",
+      "exec": "prod_orfad_scenario"
+    },
+    "prod_orfad_test": {
+      "executor": "shared-iterations",
+      "iterations": 1,
+      "vus": 1,
+      "exec": "prod_orfad_scenario"
+    },
+    "prod_impression_test": {
+      "executor": "shared-iterations",
+      "iterations": 1,
+      "vus": 1,
+      "exec": "prod_impression_scenario"
+    },
+    "prod_click_test": {
+      "executor": "shared-iterations",
+      "iterations": 1,
+      "vus": 1,
+      "exec": "prod_click_scenario"
+    },
+    "prod_impression": {
+      "executor": "ramping-vus",
+      "startVUs": 1000,
+      "stages": [
+        {
+          "duration": "60s",
+          "target": 1000
+        },
+        {
+          "duration": "10s",
+          "target": 2000
+        },
+        {
+          "duration": "180s",
+          "target": 2000
+        },
+        {
+          "duration": "10s",
+          "target": 3000
+        },
+        {
+          "duration": "600s",
+          "target": 3000
+        },
+        {
+          "duration": "10s",
+          "target": 1000
+        },
+        {
+          "duration": "60s",
+          "target": 1000
+        }
+      ],
+      "gracefulRampDown": "10s",
+      "exec": "prod_impression_scenario"
+    },
+    "prod_click": {
+      "executor": "ramping-vus",
+      "startVUs": 1000,
+      "stages": [
+        {
+          "duration": "60s",
+          "target": 1000
+        },
+        {
+          "duration": "10s",
+          "target": 2000
+        },
+        {
+          "duration": "180s",
+          "target": 2000
+        },
+        {
+          "duration": "10s",
+          "target": 3000
+        },
+        {
+          "duration": "600s",
+          "target": 3000
+        },
+        {
+          "duration": "10s",
+          "target": 1000
+        },
+        {
+          "duration": "60s",
+          "target": 1000
+        }
+      ],
+      "gracefulRampDown": "10s",
+      "exec": "prod_click_scenario"
     }
   }
 }
