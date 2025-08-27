@@ -1,4 +1,4 @@
-import {checkStatus, getRandomElement, trackResponseTime} from "../common/utils.js";
+import {checkStatus, getRandomElement} from "../common/utils.js";
 
 import { URL } from 'https://jslib.k6.io/url/1.0.0/index.js';
 import http from 'k6/http';
@@ -9,7 +9,7 @@ export function prod_click() {
   const adunits = [ 'migros-sanalmarket-sponsored-product-1', 'migros-sanalmarket-sponsored-product-4','migros-sanalmarket-sponsored-product-5','migros-sanalmarket-sponsored-product-7','migros-sanalmarket-sponsored-product-9','migros-sanalmarket-sponsored-product-11','migros-sanalmarket-sponsored-product-13'];
   const lineitems = [4808, 4809, 6303, 6304];
 
-  url.searchParams.append('li', getRandomElement());
+  url.searchParams.append('li', getRandomElement(lineitems));
   url.searchParams.append('c', 10);
   url.searchParams.append('au', getRandomElement(adunits));
   url.searchParams.append('kw', 'diş fırçası');
@@ -22,15 +22,15 @@ export function prod_click() {
   url.searchParams.append('os', 'iOS 17');
   url.searchParams.append('br', 'Google Chrome');
 
-  console.log(url.toString())
+    let response = http.get(url.toString(), {
+        tags: { name: 'value' }
+    });
 
-  /*let response = http.get(url.toString());
-  trackResponseTime(response);
-  checkStatus({
-    response: response,
-    expectedStatus: 200,
-    failOnError: true,
-    printOnError: true
-  });*/
+    checkStatus({
+        response: response,
+        expectedStatus: 200,
+        //failOnError: true,
+        //printOnError: true
+    });
   
 }
