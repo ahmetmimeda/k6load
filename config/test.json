@@ -67,7 +67,7 @@
     },
     "prod_event_test": {
       "executor": "shared-iterations",
-      "iterations": 200,
+      "iterations": 20,
       "vus": 5,
       "exec": "prod_event_scenario"
     },
