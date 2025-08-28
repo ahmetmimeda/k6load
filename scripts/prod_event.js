@@ -34,6 +34,7 @@ export function prod_event() {
   url.searchParams.append('lc', '');
   url.searchParams.append('os', 'iOS 17');
   url.searchParams.append('br', 'Google Chrome');
+  url.searchParams.append('tid', crypto.randomUUID());
 
   /* console.log(decodedpl)
   console.log(url.toString()) */
