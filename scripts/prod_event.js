@@ -13,7 +13,7 @@ export function prod_event() {
   const timestamp = Date.now() - Math.floor(Math.random() * 72 * 60 * 60 * 1000);
   url.searchParams.append('v', '1.0.3-beta');
   url.searchParams.append('pub', 'unknown');
-  url.searchParams.append('appId', 'sanalmarket');
+  url.searchParams.append('app', 'sanalmarket');
   url.searchParams.append('t', timestamp);
   url.searchParams.append('d', 'Web');
   url.searchParams.append('lng', 'tr-TR');
