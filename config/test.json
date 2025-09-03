@@ -67,8 +67,8 @@
     },
     "prod_event_test": {
       "executor": "shared-iterations",
-      "iterations": 20,
-      "vus": 5,
+      "iterations": 1,
+      "vus": 1,
       "exec": "prod_event_scenario"
     },
     "prod_orfad": {
@@ -105,6 +105,75 @@
         }
       ],
       "gracefulRampDown": "10s",
+      "exec": "prod_orfad_scenario"
+    },
+    "prod_orfad_rar": {
+      "executor": "ramping-arrival-rate",
+      "startRate": 0,
+      "timeUnit": "1s",
+      "preAllocatedVUs": 3000,
+      "stages": [
+        {
+          "duration": "10s",
+          "target": 250
+        },
+        {
+          "duration": "60s",
+          "target": 250
+        },
+        {
+          "duration": "10s",
+          "target": 500
+        },
+        {
+          "duration": "60s",
+          "target": 500
+        },
+        {
+          "duration": "10s",
+          "target": 750
+        },
+        {
+          "duration": "60s",
+          "target": 750
+        },
+        {
+          "duration": "10s",
+          "target": 1000
+        },
+        {
+          "duration": "60s",
+          "target": 1000
+        },
+        {
+          "duration": "10s",
+          "target": 1250
+        },
+        {
+          "duration": "60s",
+          "target": 1250
+        },
+        {
+          "duration": "10s",
+          "target": 1500
+        },
+        {
+          "duration": "60s",
+          "target": 1500
+        },
+        {
+          "duration": "10s",
+          "target": 2000
+        },
+        {
+          "duration": "60s",
+          "target": 2000
+        },
+        {
+          "duration": "20s",
+          "target": 0
+        }
+      ],
       "exec": "prod_orfad_scenario"
     },
     "prod_orfad_test": {
