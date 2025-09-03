@@ -19,6 +19,19 @@ export function randomIntBetween(min, max) { // min and max included
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
+export function checkStatusTime(response, expectedStatus, expectedTime) {
+    const result = check(response, {
+        [`status is ${expectedStatus}`]: (r) => r.status === expectedStatus,
+        [`response time < ${expectedTime}ms`]: (r) => r.timings.duration < expectedTime
+    });
+
+    if (!result) {
+        console.error(`Check failed for URL: ${response.url} 
+        → status: ${response.status}, expected: ${expectedStatus} 
+        → duration: ${response.timings.duration} ms, expected < ${expectedTime} ms`);
+    }
+}
+
 export function checkStatus({ response, expectedStatus, expectedContent, failOnError, printOnError, dynamicIds }) {
   /* if (isEmpty(expectedStatus) && isEmpty(expectedContent)) {
     console.warn('No expected status or content specified in call to checkStatus for URL ' + response.url);
