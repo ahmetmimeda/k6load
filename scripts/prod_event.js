@@ -1,4 +1,7 @@
-import { checkStatus, getRandomElement, getRandomIntList, getRandomInt, appendIntToPreset, generateRandomTripletString } from "../common/utils.js";
+import {
+    checkStatus, getRandomElement, getRandomIntList, getRandomInt, appendIntToPreset, generateRandomTripletString,
+    checkStatusTime
+} from "../common/utils.js";
 
 import { URL } from 'https://jslib.k6.io/url/1.0.0/index.js';
 import http from 'k6/http';
@@ -43,13 +46,9 @@ export function prod_event() {
   tags: { name: 'value' }
   });
 
-  checkStatus({
-    response: response,
-    expectedStatus: 200,
-    //failOnError: true,
-    //printOnError: true
-  });
-  
-  //sleep(2);
+    checkStatusTime(response, 200, 10000);
+
+
+    //sleep(2);
 
 }

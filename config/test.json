@@ -76,32 +76,24 @@
       "startVUs": 1000,
       "stages": [
         {
-          "duration": "60s",
+          "duration": "20s",
           "target": 1000
-        },
-        {
-          "duration": "10s",
-          "target": 2000
-        },
-        {
-          "duration": "180s",
-          "target": 2000
         },
         {
           "duration": "10s",
           "target": 3000
         },
         {
-          "duration": "600s",
+          "duration": "120s",
           "target": 3000
         },
         {
           "duration": "10s",
-          "target": 1000
+          "target": 0
         },
         {
-          "duration": "60s",
-          "target": 1000
+          "duration": "2s",
+          "target": 0
         }
       ],
       "gracefulRampDown": "10s",
@@ -111,63 +103,47 @@
       "executor": "ramping-arrival-rate",
       "startRate": 0,
       "timeUnit": "1s",
-      "preAllocatedVUs": 3000,
+      "preAllocatedVUs": 1000,
       "stages": [
         {
-          "duration": "10s",
-          "target": 250
-        },
-        {
-          "duration": "60s",
-          "target": 250
-        },
-        {
-          "duration": "10s",
-          "target": 500
-        },
-        {
-          "duration": "60s",
-          "target": 500
-        },
-        {
-          "duration": "10s",
-          "target": 750
-        },
-        {
-          "duration": "60s",
-          "target": 750
-        },
-        {
-          "duration": "10s",
+          "duration": "20s",
           "target": 1000
         },
         {
-          "duration": "60s",
+          "duration": "90s",
           "target": 1000
         },
         {
-          "duration": "10s",
-          "target": 1250
-        },
-        {
-          "duration": "60s",
-          "target": 1250
-        },
-        {
-          "duration": "10s",
-          "target": 1500
-        },
-        {
-          "duration": "60s",
-          "target": 1500
-        },
-        {
-          "duration": "10s",
+          "duration": "20s",
           "target": 2000
         },
         {
-          "duration": "60s",
+          "duration": "90s",
           "target": 2000
+        },
+        {
+          "duration": "20s",
+          "target": 3000
+        },
+        {
+          "duration": "90s",
+          "target": 3000
+        },
+        {
+          "duration": "20s",
+          "target": 4000
+        },
+        {
+          "duration": "90s",
+          "target": 4000
+        },
+        {
+          "duration": "20s",
+          "target": 5000
+        },
+        {
+          "duration": "90s",
+          "target": 5000
         },
         {
           "duration": "20s",
