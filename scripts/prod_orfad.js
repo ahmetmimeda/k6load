@@ -7,8 +7,8 @@ import { sleep } from 'k6';
 
 export function prod_orfad() {
 
-    //const url = new URL('https://adserver.mlink.com.tr/api/SponsoredProduct/orfad');
-    //const url = new URL('https://bidding-mimeda-test.azurewebsites.net/search');
+    //const url = new URL('https://adserver.mlink.com.tr/orfad');
+    //const url = new URL('https://bidding-mimeda-test.azurewebsites.net/orfad');
     const url = new URL('https://bidding-mimeda.azurewebsites.net/orfad');
     //const url = new URL('https://adserver.mlink.com.tr/search');
     const keywords = ['diş', 'diş macunu', 'diş fırçası', 'süt', 'kahve', 'krema', 'dondurma', 'su', 'zeytin yağı', 'çikolata', 'peynir', 'çay', 'kola', 'salça', 'şampuan', 'pirinç', 'ton balığı', 'maden suyu', 'çamaşır suyu', 'yumuşatıcı'];
