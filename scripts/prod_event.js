@@ -10,7 +10,8 @@ import { sleep } from 'k6';
 
 export function prod_event() {  
 
-  const url = new URL('https://bidding-eventcollector.azurewebsites.net/events');
+  const url = new URL('https://bidding-eventcollector.azurewebsites.net/events'); // no waf
+  //const url = new URL('https://event.mlink.com.tr/events');
   const options = ['home', 'cart', 'listing', 'search'];
   const productList = generateRandomTripletString(getRandomInt(1, 8));
   const timestamp = Date.now() - Math.floor(Math.random() * 72 * 60 * 60 * 1000);

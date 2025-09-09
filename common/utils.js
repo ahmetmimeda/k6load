@@ -20,16 +20,20 @@ export function randomIntBetween(min, max) { // min and max included
 }
 
 export function checkStatusTime(response, expectedStatus, expectedTime) {
-    const result = check(response, {
-        [`status is ${expectedStatus}`]: (r) => r.status === expectedStatus,
+    const statusResult = check(response, {
+        [`response status is ${response.status} : expected status is ${expectedStatus}`]: (r) => r.status === expectedStatus
+    });
+
+    const ResponseTimeResult = check(response, {
         [`response time < ${expectedTime}ms`]: (r) => r.timings.duration < expectedTime
     });
 
-    if (!result) {
-        console.error(`Check failed for URL: ${response.url} 
-        → status: ${response.status}, expected: ${expectedStatus} 
-        → duration: ${response.timings.duration} ms, expected < ${expectedTime} ms`);
+    if (!statusResult || !ResponseTimeResult) {
+        console.error(`Status failed for URL: ${response.url} 
+        → status: ${response.status}, expected: ${expectedStatus}
+        → response: ${JSON.stringify(response)}`);
     }
+
 }
 
 export function checkStatus({ response, expectedStatus, expectedContent, failOnError, printOnError, dynamicIds }) {
