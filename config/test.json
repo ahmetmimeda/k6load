@@ -89,6 +89,22 @@
         },
         {
           "duration": "10s",
+          "target": 5000
+        },
+        {
+          "duration": "180s",
+          "target": 5000
+        },
+        {
+          "duration": "30s",
+          "target": 10000
+        },
+        {
+          "duration": "600s",
+          "target": 10000
+        },
+        {
+          "duration": "10s",
           "target": 0
         },
         {

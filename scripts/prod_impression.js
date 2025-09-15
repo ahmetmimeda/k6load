@@ -1,4 +1,4 @@
-import { checkStatus, trackResponseTime } from "../common/utils.js";
+import {checkStatus, checkStatusTime, trackResponseTime} from "../common/utils.js";
 
 import { URL } from 'https://jslib.k6.io/url/1.0.0/index.js';
 import http from 'k6/http';
@@ -22,15 +22,9 @@ export function prod_impression() {
   url.searchParams.append('br', 'Google Chrome');
 
 
-    let response = http.get(url.toString(), {
-        tags: { name: 'value' }
-    });
+    let response = http.get(url.toString());
 
-    checkStatus({
-        response: response,
-        expectedStatus: 200,
-        //failOnError: true,
-        //printOnError: true
-    });
-  
+    checkStatusTime(response, 200, 10000);
+
+
 }

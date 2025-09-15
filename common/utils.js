@@ -28,11 +28,7 @@ export function checkStatusTime(response, expectedStatus, expectedTime) {
         [`response time < ${expectedTime}ms`]: (r) => r.timings.duration < expectedTime
     });
 
-    if (!statusResult || !ResponseTimeResult) {
-        console.error(`Status failed for URL: ${response.url} 
-        → status: ${response.status}, expected: ${expectedStatus}
-        → response: ${JSON.stringify(response)}`);
-    }
+
 
 }
 
