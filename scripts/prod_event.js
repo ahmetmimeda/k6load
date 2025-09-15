@@ -40,11 +40,9 @@ export function prod_event() {
   url.searchParams.append('br', 'Google Chrome');
   url.searchParams.append('tid', crypto.randomUUID());
 
-  /* console.log(decodedpl)
-  console.log(url.toString()) */
   
   let response = http.get(url.toString(), {
-  tags: { name: 'value' }
+  tags: { name: 'event' }
   });
 
     checkStatusTime(response, 200, 10000);

@@ -4,8 +4,6 @@ export { prod_event_scenario } from './scenarios/event_scenarios.js';
 export { prod_orfad_scenario } from './scenarios/adserver_scenario.js';
 
 
-globalThis.PAUSE_MIN = __ENV.PAUSE_MIN || 1;
-globalThis.PAUSE_MAX = __ENV.PAUSE_MAX || 5;
 globalThis.RUN_SCENARIO = __ENV.SCENARIO || "prod_event";
 globalThis.RUN_SCENARIO = __ENV.SCENARIO || "prod_click";
 globalThis.RUN_SCENARIO = __ENV.SCENARIO || "prod_event_test";
@@ -18,18 +16,16 @@ globalThis.RUN_SCENARIO = __ENV.SCENARIO || "prod_click_test";
 // load test config, used to populate exported options object:
 const testConfig = JSON.parse(open('./config/test.json'));
 
-const selectedScenario = {
-  scenarios: {
-    [RUN_SCENARIO]: testConfig.scenarios[RUN_SCENARIO],
-  },
-};
 
-export const options = Object.assign(
-  {
+export const options= {
     insecureSkipTlsVerify: false,
-  },
-  selectedScenario
-);
+    tags: {
+        vm: __ENV.VM_NAME || "default_vm"
+    },
+    scenarios: {
+        [RUN_SCENARIO]: testConfig.scenarios[RUN_SCENARIO],
+    }
+}
 
 export default function () {
   console.log(`Running scenario: ${RUN_SCENARIO}`);
