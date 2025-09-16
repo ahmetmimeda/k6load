@@ -42,7 +42,7 @@ export function prod_event() {
 
   
   let response = http.get(url.toString(), {
-  tags: { name: 'event' }
+  tags: { url: 'generic'}
   });
 
     checkStatusTime(response, 200, 10000);
