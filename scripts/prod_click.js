@@ -1,4 +1,4 @@
-import {checkStatus, getRandomElement} from "../common/utils.js";
+import {checkStatus, checkStatusTime, getRandomElement} from "../common/utils.js";
 
 import { URL } from 'https://jslib.k6.io/url/1.0.0/index.js';
 import http from 'k6/http';
@@ -9,11 +9,11 @@ export function prod_click() {
   const adunits = [ 'migros-sanalmarket-sponsored-product-1', 'migros-sanalmarket-sponsored-product-4','migros-sanalmarket-sponsored-product-5','migros-sanalmarket-sponsored-product-7','migros-sanalmarket-sponsored-product-9','migros-sanalmarket-sponsored-product-11','migros-sanalmarket-sponsored-product-13'];
   const lineitems = [4808, 4809, 6303, 6304];
 
-  url.searchParams.append('li', getRandomElement(lineitems));
-  url.searchParams.append('c', 10);
-  url.searchParams.append('au', getRandomElement(adunits));
-  url.searchParams.append('kw', 'diş fırçası');
-  url.searchParams.append('psku', 34049068);
+  url.searchParams.append('li', 6319);
+  url.searchParams.append('c', 9);
+  url.searchParams.append('au', 'migros-sanalmarket-sponsored-product-slot-11');
+  url.searchParams.append('kw', 'ahmet');
+  url.searchParams.append('psku', 10013660);
   const decoded = decodeURIComponent('Lx5vdxgHjY0CYrqIA127%2b27uN6vN83WlLD3g2e7M4vmtbgJ85w45%2bRibcocLtLUUVb0b0GspmPwC%2fhO13G%2fiNJONKw4xrxXet%2bEPla4Sj7Xutb1uLhVSvRCA99v1cAxwptMua6C3BsVTm%2fRrGz3TMQ%3d%3d');
   url.searchParams.append('pyl', decoded);
   url.searchParams.append('t', Date.now());
@@ -23,14 +23,10 @@ export function prod_click() {
   url.searchParams.append('br', 'Google Chrome');
 
     let response = http.get(url.toString(), {
-        tags: { name: 'value' }
+        tags: { url: 'generic'}
     });
 
-    checkStatus({
-        response: response,
-        expectedStatus: 200,
-        //failOnError: true,
-        //printOnError: true
-    });
-  
+    checkStatusTime(response, 200, 10000);
+
+
 }
