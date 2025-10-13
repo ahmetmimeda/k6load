@@ -2,6 +2,7 @@ export { prod_click_scenario } from './scenarios/performance_scenarios.js';
 export { prod_impression_scenario } from './scenarios/performance_scenarios.js';
 export { prod_event_scenario } from './scenarios/event_scenarios.js';
 export { prod_orfad_scenario } from './scenarios/adserver_scenario.js';
+export { test_scenario } from './scenarios/test_scenario.js';
 
 
 globalThis.RUN_SCENARIO = __ENV.SCENARIO || "prod_event";

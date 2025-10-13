@@ -5,8 +5,8 @@ import http from 'k6/http';
 
 
 export function prod_click() {  
-  //const url = new URL('https://performance.mlink.com.tr/clicks');
-  const url = new URL('https://bidding-prfmnccollector.azurewebsites.net/clicks');
+  const url = new URL('https://performance.mlink.com.tr/clicks');
+  //const url = new URL('https://bidding-prfmnccollector.azurewebsites.net/clicks');
   const adunits = [ 'migros-sanalmarket-sponsored-product-1', 'migros-sanalmarket-sponsored-product-4','migros-sanalmarket-sponsored-product-5','migros-sanalmarket-sponsored-product-7','migros-sanalmarket-sponsored-product-9','migros-sanalmarket-sponsored-product-11','migros-sanalmarket-sponsored-product-13'];
   const lineitems = [4808, 4809, 6303, 6304];
 

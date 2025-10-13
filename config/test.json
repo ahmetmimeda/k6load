@@ -67,7 +67,7 @@
     },
     "prod_event_test": {
       "executor": "shared-iterations",
-      "iterations": 1,
+      "iterations": 100,
       "vus": 1,
       "exec": "prod_event_scenario"
     },
@@ -247,7 +247,7 @@
     },
     "prod_orfad_test": {
       "executor": "shared-iterations",
-      "iterations": 10000,
+      "iterations": 1000,
       "vus": 5,
       "exec": "prod_orfad_scenario"
     },
@@ -276,7 +276,7 @@
           "target": 2000
         },
         {
-          "duration": "180s",
+          "duration": "60s",
           "target": 2000
         },
         {
@@ -312,7 +312,7 @@
           "target": 2000
         },
         {
-          "duration": "180s",
+          "duration": "60s",
           "target": 2000
         },
         {
@@ -334,6 +334,12 @@
       ],
       "gracefulRampDown": "10s",
       "exec": "prod_click_scenario"
+    },
+    "test": {
+      "executor": "shared-iterations",
+      "iterations": 60,
+      "vus": 1,
+      "exec": "test_scenario"
     }
   }
 }

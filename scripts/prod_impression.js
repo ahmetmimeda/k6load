@@ -6,8 +6,8 @@ import http from 'k6/http';
 
 export function prod_impression() {  
 
-  //const url = new URL('https://performance.mlink.com.tr/impressions');
-  const url = new URL('https://bidding-prfmnccollector.azurewebsites.net/impressions');
+  const url = new URL('https://performance.mlink.com.tr/impressions');
+  //const url = new URL('https://bidding-prfmnccollector.azurewebsites.net/impressions');
 
   url.searchParams.append('li', 6319);
   url.searchParams.append('c', 9);
@@ -23,7 +23,14 @@ export function prod_impression() {
   url.searchParams.append('br', 'Google Chrome');
 
 
-    let response = http.get(url.toString());
+    let response = http.get(url.toString(), {
+        tags: { url: 'generic'},
+        headers: {
+            'User-Agent': 'Mozilla/5.0',
+            'Accept': 'application/json',
+            'Accept-Encoding': 'gzip, deflate',
+        }
+    });
 
     checkStatusTime(response, 200, 10000);
 

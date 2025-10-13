@@ -10,11 +10,12 @@ import { sleep } from 'k6';
 
 export function prod_event() {  
 
-  const url = new URL('https://bidding-eventcollector.azurewebsites.net/events'); // no waf
-  //const url = new URL('https://event.mlink.com.tr/events');
+  //const url = new URL('https://bidding-eventcollector.azurewebsites.net/events'); // no waf
+  const url = new URL('https://event.mlink.com.tr/events');
+
   const options = ['home', 'cart', 'listing', 'search'];
   const productList = generateRandomTripletString(getRandomInt(1, 8));
-  const timestamp = Date.now() - Math.floor(Math.random() * 72 * 60 * 60 * 1000);
+  const timestamp = Date.now();
   url.searchParams.append('v', '1.0.3-beta');
   url.searchParams.append('pub', 'unknown');
   url.searchParams.append('app', 'sanalmarket');
@@ -42,12 +43,17 @@ export function prod_event() {
 
   
   let response = http.get(url.toString(), {
-  tags: { url: 'generic'}
+      tags: { url: 'generic'},
+      headers: {
+          'User-Agent': 'Mozilla/5.0',
+          'Accept': 'application/json',
+          'Accept-Encoding': 'gzip, deflate',
+      }
   });
 
     checkStatusTime(response, 200, 10000);
 
 
-    //sleep(2);
+    //sleep(1);
 
 }
