@@ -31,38 +31,59 @@
     },
      "prod_event_ramp2k": {
       "executor": "ramping-vus",
-      "startVUs": 1000,
+      "startVUs": 0,
       "stages": [
         {
           "duration": "60s",
           "target": 1000
         },
         {
-          "duration": "10s",
-          "target": 2000
-        },
-        {
-          "duration": "60s",
-          "target": 2000
-        },
-        {
-          "duration": "10s",
-          "target": 3000
-        },
-        {
-          "duration": "600s",
-          "target": 3000
-        },
-        {
-          "duration": "10s",
+          "duration": "120s",
           "target": 1000
         },
         {
           "duration": "60s",
-          "target": 1000
+          "target": 2000
+        },
+        {
+          "duration": "120s",
+          "target": 2000
+        },
+        {
+          "duration": "60s",
+          "target": 3000
+        },
+        {
+          "duration": "120s",
+          "target": 3000
         }
       ],
       "gracefulRampDown": "10s",
+      "exec": "prod_event_scenario"
+    },
+    "prod_event_ramp1k": {
+      "executor": "ramping-vus",
+      "startVUs": 0,
+      "stages": [
+        {
+          "duration": "5s",
+          "target": 1000
+        },
+        {
+          "duration": "295s",
+          "target": 1000
+        }
+      ],
+      "gracefulRampDown": "40s",
+      "exec": "prod_event_scenario"
+    },
+    "prod_event_per_vu": {
+      "executor": "constant-arrival-rate",
+      "rate": 417,
+      "duration": "5m",
+      "timeunit": "1s",
+      "preAllocatedVUs": 200,
+      "maxVUs": 1000,
       "exec": "prod_event_scenario"
     },
     "prod_event_test": {

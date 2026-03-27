@@ -17,7 +17,6 @@ export function prod_event() {
   const productList = generateRandomTripletString(getRandomInt(1, 8));
   const timestamp = Date.now();
   url.searchParams.append('v', '1.0.3-beta');
-  url.searchParams.append('pub', 'unknown');
   url.searchParams.append('app', 'sanalmarket');
   url.searchParams.append('t', timestamp);
   url.searchParams.append('d', 'Web');
@@ -33,7 +32,7 @@ export function prod_event() {
   url.searchParams.append('s', '532216294');
   url.searchParams.append('ct', appendIntToPreset('60000000000', getRandomInt(100, 999)));
   //url.searchParams.append('kw', appendIntToPreset('key',  getRandomInt(10, 99)));
-  url.searchParams.append('kw', 'ahmetest');
+  url.searchParams.append('kw', 'ahmetestv2');
   url.searchParams.append('trans', '');
   url.searchParams.append('trc', '');
   url.searchParams.append('lc', '');
